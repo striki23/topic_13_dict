@@ -2,8 +2,8 @@
 # Ключами словаря служат символы из текста, а значениями кол-во символов.
 
 line: list = [i.upper() for i in input('Введите ваш текст: ')]
-d = {}
-for s in line:
-    if s not in d:
-        d[s] = line.count(s)
-print(d)
+chars_count = {}
+for char in line:
+    if char not in chars_count:
+        chars_count[char] = line.count(char)
+print(chars_count)
