@@ -1,19 +1,12 @@
 # добавляем контакты в телефонную книжку
 phone_nums: dict = {}
-n: int = int(input('Введите кол-во записей: '))
 
-for record in range(n):
-    k, v = input('Введите имя и телефон: ').split()
-    if k not in phone_nums.keys():
-        phone_nums[k] = (v,)
-    else:
-        phone_nums[k] += (v,)
+for record in range(int(input('Введите кол-во записей: '))):
+    key, value = input('Введите имя и телефон: ').split()
+    key = key.capitalize()
+    phone_nums[key] = phone_nums.get(key, []) + [value]
 
 # ищем абонента в словаре
-m: int = int(input('Введите количество искомых абонентов: '))
-for i in range(m):
-    name: str = input('Введите имя абонента: ')
-    if name not in phone_nums:
-        print('абонент не найден...')
-    else:
-        print(*phone_nums[name])
+for i in range(int(input('Введите количество искомых абонентов: '))):
+    name: str = input('Введите имя абонента: ').capitalize()
+    print(*phone_nums.get(name, ['абонент не найден...']))

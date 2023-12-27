@@ -6,7 +6,7 @@ for record in range(n):
     data: list = input('Введите страну и города: ').split()
     country: str = data[0]
     cities: list = data[1:]
-    if country not in countries.keys():
+    if country not in countries:
         countries[country] = cities
     else:
         countries[country] += cities

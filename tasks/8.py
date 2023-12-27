@@ -5,9 +5,8 @@ word_2: str = input('Введите второе слово: ').lower()
 
 # Прописываем функцию, которая создает из строки словарь
 # с буквами и их кол-вом
-def word_dict(word):
-    d: dict = {i: word.count(i) for i in word}
-    return d
+def word_dict(word: str) -> dict[str, int]:
+    return {let: word.count(let) for let in word}
 
 
 # если словарь двух слов равны, то это анаграмм

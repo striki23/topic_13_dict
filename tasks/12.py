@@ -5,6 +5,8 @@ for idx, word in enumerate(line):
     d.append(line[:idx].count(word))
 print(*d)
 
-# не поняла как тут использовать словарь, т.к. ни слова,
-# ни кол-во повторений не является уникальным значением,
-# т.о. не могут быть использованы в качестве ключа
+# Option №2
+words_count: dict[str, int] = {}
+for word in line:
+    words_count[word] = words_count.get(word, 0) + 1
+    print(words_count.get(word) - 1, end=' ')

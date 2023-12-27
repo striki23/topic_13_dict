@@ -3,13 +3,14 @@ election: dict = {}
 n: int = int(input('Введите кол-во записей: '))
 
 for record in range(n):
-    k, v = input('Введите фамилию кандидата и количество голосов: ').split()
-    if k not in election.keys():
-        election[k] = (v,)
+    key, value = input('Введите фамилию кандидата и количество голосов: ').split()
+    value = int(value)
+    if key not in election:
+        election[key] = (value,)
     else:
-        election[k] += (v,)
+        election[key] += (value,)
 print('\n')
 
 # читаем данные словаря и выводим общее кол-во голосов по каждому кандидату
 for candidate, voices in sorted(election.items()):
-    print(f'{candidate} | Общее количество голосов: {sum(map(int, voices))}')
+    print(f'{candidate} | Общее количество голосов: {sum(voices)}')
