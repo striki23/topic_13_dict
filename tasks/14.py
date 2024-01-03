@@ -1,4 +1,4 @@
-countries: dict = {}
+countries: dict[str, set] = {}
 
 # заносим данные в словарь
 for record in range(int(input('Введите кол-во записей: '))):

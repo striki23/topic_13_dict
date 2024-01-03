@@ -1,11 +1,9 @@
 # заносим данные в словарь
-election: dict = {}
-n: int = int(input('Введите кол-во записей: '))
+election: dict[str, int] = {}
 
-for record in range(n):
+for record in range(int(input('Введите кол-во записей: '))):
     key, value = input('Введите фамилию кандидата и количество голосов: ').split()
-    election[key] = int(election.get(key, 0)) + int(value)
-    print(election)
+    election[key] = election.get(key, 0) + int(value)
 print('\n')
 
 # читаем данные словаря и выводим общее кол-во голосов по каждому кандидату
