@@ -1,24 +1,19 @@
 countries: dict = {}
-n: int = int(input('Введите кол-во записей: '))
 
 # заносим данные в словарь
-for record in range(n):
+for record in range(int(input('Введите кол-во записей: '))):
     data: list = input('Введите страну и города: ').split()
-    country: str = data[0]
-    cities: list = data[1:]
-    if country not in countries:
-        countries[country] = cities
-    else:
-        countries[country] += cities
+    key, *values = data
+    countries[key] = countries.get(key, set()) | set(values)
+print(countries)
 print('\n')
 
 # ищем город в словаре
-m: int = int(input('Введите количество искомых записей: '))
-for i in range(m):
+for look_record in range(int(input('Введите количество искомых записей: '))):
     city = input('Введите название города: ').strip().title()
 
-    for k, v in countries.items():
-        if city in v:
-            print(k)
+    for country, cities in countries.items():
+        if city in cities:
+            print(country)
         else:
             print('город не был найден...')
